@@ -9,4 +9,5 @@ import com.demo.dataObject.ProductInfo;
 public interface ProductInfoDAO extends JpaRepository<ProductInfo, String>{
 
 	List<ProductInfo> findByProductStatus(Integer productStatus);
+	
 }
