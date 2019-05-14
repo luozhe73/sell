@@ -25,7 +25,7 @@ public class ProductCategory {
 	private Integer categoryType;
 
 	private Date createTime;
-	
+
 	private Date updateTime;
 
 	@Override
@@ -41,6 +41,10 @@ public class ProductCategory {
 		this.categoryType = categoryType;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
+	}
+
+	public ProductCategory() {
+
 	}
 
 }

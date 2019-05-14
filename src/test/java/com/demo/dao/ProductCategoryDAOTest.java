@@ -1,7 +1,10 @@
 package com.demo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
+import org.assertj.core.util.Arrays;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +38,14 @@ public class ProductCategoryDAOTest {
 		productCategoryDAO.save(entity);
 	}
 
+	@Test
+	public void findByCategoryTypeInTest() {
+		List<Integer> list = new ArrayList<Integer>() {{
+			add(1);
+			add(2);
+		}};
+		
+		List<ProductCategory> listProduct = productCategoryDAO.findByCategoryTypeIn(list);
+		System.out.println(listProduct.toString());
+	}
 }
