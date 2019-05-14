@@ -1,21 +1,30 @@
 package com.demo.dataObject;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+@DynamicUpdate
 public class ProductCategory {
 
 	@Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer categoryId;
-	
+
 	private String categoryName;
-	
+
 	private Integer categoryType;
 
+	private Date createTime;
+	
+	private Date updateTime;
+	
 	public Integer getCategoryId() {
 		return categoryId;
 	}
@@ -40,11 +49,27 @@ public class ProductCategory {
 		this.categoryType = categoryType;
 	}
 
+	
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	@Override
 	public String toString() {
 		return "ProductCategory [categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryType="
-				+ categoryType + "]";
+				+ categoryType + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
-	
-	
+
 }

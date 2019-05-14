@@ -1,7 +1,5 @@
 package com.demo.dao;
 
-import static org.junit.Assert.*;
-
 import java.util.Optional;
 
 import org.junit.Test;
@@ -27,11 +25,13 @@ public class ProductCategoryDAOTest {
 	
 	@Test
 	public void save() {
-		
-		ProductCategory entity = new ProductCategory();
-		entity.setCategoryId(1);
-		entity.setCategoryName("girl favirote");
+		Optional<ProductCategory> dao = productCategoryDAO.findById(1);
+		ProductCategory entity = dao.get();
 		entity.setCategoryType(1);
+//		ProductCategory entity = new ProductCategory();
+//		entity.setCategoryId(1);
+//		entity.setCategoryName("boy favirote");
+//		entity.setCategoryType(1);
 		productCategoryDAO.save(entity);
 	}
 
