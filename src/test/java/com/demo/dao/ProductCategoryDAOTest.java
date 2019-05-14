@@ -40,7 +40,12 @@ public class ProductCategoryDAOTest {
 
 	@Test
 	public void findByCategoryTypeInTest() {
-		List<Integer> list = new ArrayList<Integer>() {{
+		List<Integer> list = new ArrayList<Integer>() {/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
 			add(1);
 			add(2);
 		}};
