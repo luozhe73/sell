@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 
 import lombok.Data;
@@ -12,6 +15,9 @@ import lombok.Data;
 @Entity
 @DynamicUpdate
 @Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductInfo {
 
 	@Id

@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 
 import lombok.Data;
@@ -14,6 +17,9 @@ import lombok.Data;
 @Entity
 @DynamicUpdate
 @Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProductCategory {
 
 	@Id
@@ -27,24 +33,5 @@ public class ProductCategory {
 	private Date createTime;
 
 	private Date updateTime;
-
-	@Override
-	public String toString() {
-		return "ProductCategory [categoryId=" + categoryId + ", categoryName=" + categoryName + ", categoryType="
-				+ categoryType + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
-	}
-
-	public ProductCategory(Integer categoryId, String categoryName, Integer categoryType, Date createTime,
-			Date updateTime) {
-		this.categoryId = categoryId;
-		this.categoryName = categoryName;
-		this.categoryType = categoryType;
-		this.createTime = createTime;
-		this.updateTime = updateTime;
-	}
-
-	public ProductCategory() {
-
-	}
 
 }
