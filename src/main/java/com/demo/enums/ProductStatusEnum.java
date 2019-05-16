@@ -1,5 +1,6 @@
 package com.demo.enums;
 
+import lombok.Data;
 import lombok.Getter;
 
 @Getter
