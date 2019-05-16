@@ -10,7 +10,9 @@ import com.demo.dao.ProductInfoDAO;
 import com.demo.dataObject.ProductInfo;
 import com.demo.enums.ProductStatusEnum;
 import com.demo.service.ProductService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired

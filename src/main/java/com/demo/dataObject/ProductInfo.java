@@ -19,7 +19,7 @@ public class ProductInfo {
 	
 	private String productName;
 	
-	private BigDecimal productPriceBig;
+	private BigDecimal productPrice;
 	
 	private Integer productStock;
 	

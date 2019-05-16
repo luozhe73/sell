@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.demo.dao.ProductCategoryDAO;
 import com.demo.dataObject.ProductCategory;
 import com.demo.service.CategoryService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryServiceImpl implements CategoryService	{
 
 	@Autowired
