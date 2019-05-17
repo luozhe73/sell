@@ -26,37 +26,38 @@ public class BuyerProductController {
 
     @Autowired
     private CategoryService categoryService;
+    private List<ProductInfo> productInfoList;
 
     @GetMapping("/list")
     public ResultVO list() {
 
         //1.查询所有上架商品
-        List<ProductInfo> productInfoList=productService.findUpAll();
+        List<ProductInfo> productInfoList = productService.findUpAll();
 
         //2.查询类目(一次性查询)
         List<Integer> categoryTypeList = new ArrayList<Integer>();
 
-        for (ProductInfo productInfo:productInfoList
-             ) {
+        for (ProductInfo productInfo : productInfoList
+        ) {
             categoryTypeList.add(productInfo.getCategoryType());
         }
         List<ProductCategory> categoryList = categoryService.findByCategoryTypeIn(categoryTypeList);
 
         //3.数据拼装
-        List<ProductVO> productVOList=new ArrayList<>();
-        for (ProductCategory productcategory:categoryList
-             ) {
-            ProductVO productVO=new ProductVO();
+        List<ProductVO> productVOList = new ArrayList<>();
+        for (ProductCategory productcategory : categoryList
+        ) {
+            ProductVO productVO = new ProductVO();
             productVO.setCategoryType(productcategory.getCategoryType());
             productVO.setCategoryName(productcategory.getCategoryName());
 
 
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
-            for (ProductInfo productInfo:productInfoList
-                 ) {
-                if(productInfo.getCategoryType().equals(productcategory.getCategoryType())){
+            for (ProductInfo productInfo : productInfoList
+            ) {
+                if (productInfo.getCategoryType().equals(productcategory.getCategoryType())) {
                     ProductInfoVO productInfoVO = new ProductInfoVO();
-                    BeanUtils.copyProperties(productInfo,productInfoVO);
+                    BeanUtils.copyProperties(productInfo, productInfoVO);
                     productInfoVOList.add(productInfoVO);
                 }
             }
