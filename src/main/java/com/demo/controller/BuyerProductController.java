@@ -7,6 +7,7 @@ import com.demo.dataObject.ProductCategory;
 import com.demo.dataObject.ProductInfo;
 import com.demo.service.CategoryService;
 import com.demo.service.ProductService;
+import com.demo.util.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -26,7 +26,6 @@ public class BuyerProductController {
 
     @Autowired
     private CategoryService categoryService;
-    private List<ProductInfo> productInfoList;
 
     @GetMapping("/list")
     public ResultVO list() {
@@ -35,7 +34,7 @@ public class BuyerProductController {
         List<ProductInfo> productInfoList = productService.findUpAll();
 
         //2.查询类目(一次性查询)
-        List<Integer> categoryTypeList = new ArrayList<Integer>();
+        List<Integer> categoryTypeList = new ArrayList<>();
 
         for (ProductInfo productInfo : productInfoList
         ) {
@@ -65,12 +64,6 @@ public class BuyerProductController {
             productVOList.add(productVO);
         }
 
-        ResultVO resultVO = new ResultVO();
-
-        resultVO.setData(productVOList);
-        resultVO.setCode(0);
-        resultVO.setMsg("success");
-
-        return resultVO;
+        return ResultVOUtil.success(productVOList);
     }
 }
