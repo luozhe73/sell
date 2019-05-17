@@ -1,29 +1,19 @@
-package com.demo.dataObject;
+package com.demo.dto;
 
+import com.demo.dataObject.OrderDetail;
 import com.demo.enums.OrderStatusEnum;
 import com.demo.enums.payStatusEnum;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@DynamicUpdate
 @Data
 @ToString
-@AllArgsConstructor
-@NoArgsConstructor
-public class OrderMaster {
+public class OrderDTO {
 
-    @Id
     private String orderId;
 
     private String buyerName;
@@ -42,19 +32,16 @@ public class OrderMaster {
     /**
      * 订单状态:默认为新订单
      */
-    private Integer orderStatus = OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus;
 
     /**
      * 支付状态:默认为支付
      */
-    private Integer payStatus = payStatusEnum.WAIT.getCode();
+    private Integer payStatus;
 
     private Date createTime;
 
     private Date updateTime;
 
-    /**数据库对应时不会对应该字段*/
-    // @Transient
-    // private List<OrderDetail> orderDetailList;
-
+    private List<OrderDetail> orderDetailList;
 }
