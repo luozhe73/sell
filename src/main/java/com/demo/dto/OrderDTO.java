@@ -1,9 +1,9 @@
 package com.demo.dto;
 
 import com.demo.dataObject.OrderDetail;
-import com.demo.enums.OrderStatusEnum;
-import com.demo.enums.payStatusEnum;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.math.BigDecimal;
@@ -12,6 +12,8 @@ import java.util.List;
 
 @Data
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class OrderDTO {
 
     private String orderId;

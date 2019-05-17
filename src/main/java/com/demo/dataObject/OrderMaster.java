@@ -1,7 +1,7 @@
 package com.demo.dataObject;
 
 import com.demo.enums.OrderStatusEnum;
-import com.demo.enums.payStatusEnum;
+import com.demo.enums.PayStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +10,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @DynamicUpdate
@@ -47,7 +45,7 @@ public class OrderMaster {
     /**
      * 支付状态:默认为支付
      */
-    private Integer payStatus = payStatusEnum.WAIT.getCode();
+    private Integer payStatus = PayStatusEnum.WAIT.getCode();
 
     private Date createTime;
 
